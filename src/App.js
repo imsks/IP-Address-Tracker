@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from "react";
-import Auth from "./sections/Auth";
-import IPTracker from "./sections/IPTracker";
+import React, { useState } from "react";
+import AppContainer from "./components/AppContainer";
+import { useSawo } from "./utils/hooks";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const sawoAuthSuccess = async (payload) => {
+    setIsLoggedIn(true);
+  };
+
+  useSawo(sawoAuthSuccess);
 
   return (
     <main className="ipaddressapp">
-      <section className="ipaddressapp__container">
-        {!isLoggedIn ? <Auth /> : <IPTracker />}
-      </section>
+      <AppContainer isLoggedIn={isLoggedIn} />
     </main>
   );
 };

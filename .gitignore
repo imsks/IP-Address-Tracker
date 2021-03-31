@@ -26,3 +26,6 @@ yarn-error.log*
 .firebaserc
 firebase.json
 package-lock.json
+
+dev.env
+prod.env

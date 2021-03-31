@@ -1,10 +1,16 @@
-import "./App.css";
+import React, { useState, useEffect } from "react";
+import Auth from "./sections/Auth";
+import IPTracker from "./sections/IPTracker";
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
   return (
-    <>
-      <h1>IP Address Tracker</h1>
-    </>
+    <main className="ipaddressapp">
+      <section className="ipaddressapp__container">
+        {!isLoggedIn ? <Auth /> : <IPTracker />}
+      </section>
+    </main>
   );
 };
 

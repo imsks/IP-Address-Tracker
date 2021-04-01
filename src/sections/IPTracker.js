@@ -1,35 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FormInput, FormSubmitButton } from "../components/Form";
 import { MainHeading } from "../components/Headings";
 import IPTrackerHero from "../components/IPTrackerHero";
 import IPTrackerMap from "../components/IPTrackerMap";
 import {
-  getIPTrackerResponse,
   handleIPAddressInput,
   handleSubmitIpAddress,
 } from "../utils/functions";
+import { useIPTrackerAPI } from "../utils/hooks";
 
 const IPTracker = () => {
   const [ipTrackerResponseData, setIpTrackerResponseData] = useState(null);
-  const [currentIpAddress, setCurrentIpAddress] = useState(null);
+  const [currentIpAddress, setCurrentIpAddress] = useState("8.8.8.8");
   const [ipTrackingStatusText, setIpTrackingStatusText] = useState("Loading");
 
-  async function getIPTrackerResponseFromAPI(ipAddress = "8.8.8.8") {
-    const response = await getIPTrackerResponse(ipAddress);
-
-    if (response.status === "Failed") {
-      setIpTrackingStatusText(response.message);
-      return;
-    }
-
-    setIpTrackerResponseData(response);
-  }
-
-  useEffect(() => {
-    getIPTrackerResponseFromAPI();
-  }, []);
-
-  console.log(ipTrackerResponseData)
+  useIPTrackerAPI(
+    currentIpAddress,
+    setIpTrackingStatusText,
+    setIpTrackerResponseData
+  );
 
   return (
     <div className="ipaddressapp__container__tracker">
@@ -46,8 +35,9 @@ const IPTracker = () => {
           handleSubmitIpAddress={(e) =>
             handleSubmitIpAddress(
               e,
-              getIPTrackerResponseFromAPI,
-              currentIpAddress
+              currentIpAddress,
+              setIpTrackingStatusText,
+              setIpTrackerResponseData
             )
           }
         />

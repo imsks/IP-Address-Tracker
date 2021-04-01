@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Sawo from "sawo";
+import { getIPTrackerResponseFromAPI } from "./functions";
 
 export const useSawo = (sawoAuthSuccess) => {
   useEffect(() => {
@@ -17,4 +18,26 @@ export const useSawo = (sawoAuthSuccess) => {
     let sawo = new Sawo(config);
     sawo.showForm();
   }, []);
+};
+
+export const useMap = (coordinates, setPosition) => {
+  useEffect(() => {
+    const { lat, lng } = coordinates;
+    setPosition([lat, lng]);
+  }, [coordinates]);
+};
+
+export const useIPTrackerAPI = (
+  // getIPTrackerResponseFromAPI,
+  currentIpAddress,
+  setIpTrackingStatusText,
+  setIpTrackerResponseData
+) => {
+  useEffect(() => {
+    getIPTrackerResponseFromAPI(
+      currentIpAddress,
+      setIpTrackingStatusText,
+      setIpTrackerResponseData
+    );
+  }, [currentIpAddress]);
 };

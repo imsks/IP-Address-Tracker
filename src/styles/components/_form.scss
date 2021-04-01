@@ -9,19 +9,7 @@
   }
 
   @include respond(phone) {
-    width: 85%;
-  }
-  &__group {
-    margin-top: 3rem;
-  }
-
-  &__label {
-    font-size: 2.5rem;
-    font-weight: 600;
-    @include respond(small-phone) {
-      margin-left: 2rem;
-      font-size: 1.8rem;
-    }
+    width: 90%;
   }
 
   &__input {
@@ -37,6 +25,10 @@
     outline: none;
     transition: 0.5s all;
     border-radius: 5px 0 0 5px;
+
+    @include respond(tab-land) {
+      padding: 2rem 2rem 2rem 2rem;
+    }
   }
 
   &__submit {

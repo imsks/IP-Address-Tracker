@@ -39,15 +39,6 @@
   }
 
   &:hover {
-    transform: translateY(-0.2rem);
-  }
-
-  &:disabled {
-    background-color: rgba($color: $color-grey, $alpha: 0.8);
-    color: rgba($color: $color-white, $alpha: 0.5);
-    
-    &:hover {
-      transform: none;
-    }
+    background-color: rgba($color: $color-primary, $alpha: 0.7);
   }
 }

@@ -1,11 +1,9 @@
 import React from "react";
 
-const MainHeading = ({ text }) => {
-  return (
-    <h1 className="heading-main">
-      {text}
-    </h1>
-  );
+export const MainHeading = ({ text, className }) => {
+  return <h1 className={"heading-main " + className}>{text}</h1>;
 };
 
-export default MainHeading;
+export const SubHeading = ({ text, className }) => {
+  return <h4 className={"heading-sub " + className}>{text}</h4>;
+};

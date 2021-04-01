@@ -1,4 +1,4 @@
-import MainHeading from "../components/Headings";
+import {MainHeading} from "../components/Headings";
 
 const Auth = () => {
   return (

@@ -17,20 +17,13 @@ body {
 .heading-sub {
   color: $color-black;
 
-  &--main {
-    display: block;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  @include respond(phone) {
     font-size: 2.5rem;
-    font-weight: 600;
-
-    @include respond(phone) {
-      font-size: 2.5rem;
-    }
-  }
-
-  &--sub {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 600;
   }
 }
 

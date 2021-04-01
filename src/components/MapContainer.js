@@ -9,6 +9,7 @@ const FullMapContainer = ({ position }) => {
       center={position}
       zoom={13}
       style={{ height: "60vh", width: "100wh" }}
+      key={Math.random()}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
